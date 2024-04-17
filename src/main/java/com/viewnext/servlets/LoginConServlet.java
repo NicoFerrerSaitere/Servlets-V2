@@ -3,7 +3,6 @@ package com.viewnext.servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -22,7 +21,17 @@ public class LoginConServlet extends HttpServlet {
 		String contra = request.getParameter("pass");
 		if ((usuario == null) || usuario.trim().equals("") || (contra == null) || (contra.trim().equals(""))) {
 
+			out.println("<html>");
+			out.println("<head></head>");
+			out.println("<body>");
+
 			out.println("No has rellenado los campos ");
+			out.println("<br>");
+			out.println("<br>");
+			out.println("<a href=\"LoginConServlet.jsp\"> Inicio de Sesion</a>");
+
+			out.println("</body>");
+			out.println("</html>");
 
 		} else if (usuario.equalsIgnoreCase("nico") && (contra.equals("12345"))) {
 
@@ -35,6 +44,9 @@ public class LoginConServlet extends HttpServlet {
 			out.println("<br>");
 			out.println("Password:");
 			out.println(contra);
+			out.println("<br>");
+			out.println("<br>");
+			out.println("<a href=\"LoginConServlet.jsp\"> Inicio de Sesion</a>");
 
 			out.println("</body>");
 			out.println("</html>");
@@ -44,6 +56,8 @@ public class LoginConServlet extends HttpServlet {
 			out.println("<body>");
 
 			out.println("No eres un usuario registrado");
+			out.println("<br>");
+			out.println("<a href=\"LoginConServlet.jsp\"> Inicio de Sesion</a>");
 
 			out.println("</body>");
 			out.println("</html>");
